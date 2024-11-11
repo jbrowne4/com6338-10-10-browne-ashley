@@ -11,15 +11,15 @@
     <header class="header">
         <nav class="nav">
             <ul class="nav__list">
-                <li><a href="#" id="home-link">Home</a></li>
-                <li><a href="#" id="weather-link">Weather Forecast</a></li>
-                <li><a href="#" id="highlights-link">Local Highlights</a></li>
+                <li><a href="#" id="home-link" aria-label="Go to Home">Home</a></li>
+                <li><a href="#" id="weather-link" aria-label="View Weather Forecast">Weather Forecast</a></li>
+                <li><a href="#" id="highlights-link" aria-label="View Local Highlights">Local Highlights</a></li>
             </ul>
         </nav>
     </header>
 
     <main id="main-content">
-        <section id="home-content">
+        <section id="home-content" class="active">
             <h1>WanderWise - Your Personal Travel Guide</h1>
             <p>WanderWise is a responsive web app for travelers, offering a personalized guide to top attractions and up-to-date weather forecasts.</p>
             <img src="Images/main__article__image.jpg" alt="Beautiful travel destination" class="main__article__image">
@@ -39,19 +39,22 @@
         // Event listeners for each nav link
         document.getElementById('home-link').addEventListener('click', function(e) {
             e.preventDefault();
-            loadHomeContent();  // Load the home content
+            loadHomeContent();
+            showSection('home-content');  // Show home section with animation
         });
 
         document.getElementById('weather-link').addEventListener('click', function(e) {
             e.preventDefault();
-            loadWeatherContent();  // Load the weather content
-            loadScript('weather.js');  // Load the weather JS dynamically
+            loadWeatherContent();
+            loadScript('weather.js');
+            showSection('weather');  // Show weather section with animation
         });
 
         document.getElementById('highlights-link').addEventListener('click', function(e) {
             e.preventDefault();
-            loadHighlightsContent();  // Load the highlights content
-            loadScript('highlights.js');  // Load the highlights JS dynamically
+            loadHighlightsContent();
+            loadScript('highlights.js');
+            showSection('highlights');  // Show highlights section with animation
         });
 
         // Function to load the home content
@@ -101,6 +104,15 @@
             script.type = 'text/javascript';
             document.body.appendChild(script);  
         }
+
+        // Function to show a section with fade-in animation
+        function showSection(sectionId) {
+            document.querySelectorAll('#main-content section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
     </script>
 </body>
 </html>
+

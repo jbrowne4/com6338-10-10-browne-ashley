@@ -7,60 +7,113 @@
     --background-color: #ECF0F1;
 }
 
-
 body {
     font-family: 'Roboto', sans-serif; 
     color: var(--text-color);
     background-color: var(--background-color);
     line-height: 1.6;
-    margin: 10;
-    padding: 4;
-    font-size: 16px; /* Default size; adjust as needed */
-    overflow-x: hidden; /* Prevent horizontal scroll on responsive layouts */
+    font-size: 16px;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased; 
 }
 
 .header {
     background-color: var(--secondary-color);
-    padding: 1.5em 0; /* Increased padding for a spacious header */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
-}
-
-h1, h2 {
-    color: var(--primary-color);
-    text-align: center;
-    margin: 0.5em 0; /* Adds space between headings and other content */
-    line-height: 1.2;
-}
-
-h3 {
-    color: var(--highlight-color);
-    text-align: center;
-    margin: 0.75em 0;
-}
-
-.main__article__image {
-    width: 100%; /* Sets width to be responsive */
-    max-width: 600px; /* Constrains to a maximum width */
-    height: auto;
-    display: block; /* Centers image within parent container */
-    margin: 0 auto;
-    border-radius: 8px; /* Adds soft rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow for a lifted effect */
+    padding: 1.5em 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .nav {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 1em 0;
-    gap: 1em;
+    gap: 2em;
 }
 
 .nav__list {
     list-style: none;
     display: flex;
-    gap: 1.5em; /* Increased gap for more spacing between items */
-    margin: 0;
-    padding: 0;
+    gap: 2em;
 }
+
+.main__article__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+input, button {
+    padding: 0.75em;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    outline: none;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+/* Fade-in animation for sections */
+#main-content section {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#main-content section.active {
+    opacity: 1;
+}
+
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    padding: 1em 0;
+    text-align: center;
+}
+
+#forecast-container {
+    display: flex;
+    justify-content: space-around; /* Distributes items with space between */
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    overflow-x: auto; /* Ensures scrolling if needed on smaller screens */
+}
+
+.forecast-day {
+    background-color: var(--highlight-color); /* Light background for each forecast box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px;
+    text-align: center;
+    width: 150px; /* Fixed width for each box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 0 10px; /* Spacing between forecast boxes */
+    transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+}
+
+.forecast-day:hover {
+    transform: scale(1.05); /* Slightly enlarges the box on hover */
+}
+
+.forecast-day img {
+    width: 50px; /* Adjusts the size of the weather icon */
+    height: auto;
+}
+
+.forecast-day h3 {
+    color: var(--primary-color);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.forecast-day p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
