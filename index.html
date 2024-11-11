@@ -6,36 +6,84 @@
     <link rel="stylesheet" href="styles.css">
     <meta name="description" content="Welcome to your personal travel guide!">
     <title>WanderWise - Your Personal Travel Guide</title>
-
 </head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav__list">
+                <li><a href="#" id="home-link">Home</a></li>
+                <li><a href="#" id="weather-link">Weather Forecast</a></li>
+                <li><a href="#" id="highlights-link">Local Highlights</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header class="header">
-  <nav class="nav">
-      <ul class="nav__list">
-          <li><a href="#home" class="index.html">Home</a></li>
-          <li><a href="#weather" class="weather.js" id="weather.js">Weather Forcast</a></li>
-          <li><a href="#highlights" class="highlights.js">Local Highlights</a></li>
-      </ul>
-  </nav>
-</header>
-
-<main>
-    <section>
-        <h1>WanderWise - Your Personal Travel Guide</h1>
-         <p>WanderWise is a responsive web app for travelers, offering a personalized guide to top attractions and up-to-date weather forecasts.</p>
-         <img src="Images/main__article__image.jpg" alt="Beautiful travel destination" class="main__article__image">
+    <main id="main-content">
+        <section>
+            <h1>WanderWise - Your Personal Travel Guide</h1>
+            <p>WanderWise is a responsive web app for travelers, offering a personalized guide to top attractions and up-to-date weather forecasts.</p>
+            <img src="Images/main__article__image.jpg" alt="Beautiful travel destination" class="main__article__image">
         </section>
-      </main>
+    </main>
 
-      <footer class="footer">
-          <div class="footer__social">
-              <!-- Social media links -->
-          </div>
-          <div class="footer__contact">
-              <p>Contact us at info@wanderwise.com</p>
-          </div>
-      </footer>
-      <script src="weather.js"></script>
-      <script src="highlights.js"></script>
-  </body>
-  </html>
+    <footer class="footer">
+        <div class="footer__social">
+            <!-- Social media links -->
+        </div>
+        <div class="footer__contact">
+            <p>Contact us at info@wanderwise.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Event listeners for each nav link
+        document.getElementById('weather-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            loadWeatherContent();  // Load the weather content
+            loadScript('weather.js');  // Load the weather JS
+        });
+
+        document.getElementById('highlights-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            loadHighlightsContent();  // Load the highlights content
+            loadScript('highlights.js');  // Load the highlights JS dynamically
+        });
+
+        // Function to load the weather content
+        function loadWeatherContent() {
+            var mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <section id="weather">
+                    <h2>Weather Forecast</h2>
+                    <form>
+                        <label for="location-input">Enter a location:</label>
+                        <input type="text" id="location-input" placeholder="City, Country">
+                        <button type="submit">Get Weather</button>
+                    </form>
+                    <div id="weather-container"></div>
+                </section>
+            `;
+        }
+
+        // Function to load the local highlights content
+        function loadHighlightsContent() {
+            var mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <section id="highlights">
+                    <h2>Local Highlights</h2>
+                    <p>Discover top local attractions, restaurants, and activities!</p>
+                    <div id="highlights-container"></div>
+                </section>
+            `;
+        }
+
+        // Function to load JS 
+        function loadScript(src) {
+            var script = document.createElement('script');
+            script.src = src;
+            script.type = 'text/javascript';
+            document.body.appendChild(script);  
+        }
+    </script>
+</body>
+</html>

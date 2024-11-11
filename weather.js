@@ -57,7 +57,7 @@ function getWeather(query) {
     });
 }
 
-// sisplay an error message if the location is not found
+// display an error message if the location is not found
 function displayLocNotFound() {
     weatherContainer.innerHTML = ""; // clear previous
 
