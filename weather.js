@@ -119,5 +119,6 @@ function displayWeatherInfo(weatherObj) {
         'en-US',
         { hour: 'numeric', minute: '2-digit' }
     );
-    weatherContainer.appendChild(updatedAt);
+    
+    weatherContainer.appendChild(updatedAt); 
 }
