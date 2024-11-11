@@ -19,7 +19,7 @@
     </header>
 
     <main id="main-content">
-        <section>
+        <section id="home-content">
             <h1>WanderWise - Your Personal Travel Guide</h1>
             <p>WanderWise is a responsive web app for travelers, offering a personalized guide to top attractions and up-to-date weather forecasts.</p>
             <img src="Images/main__article__image.jpg" alt="Beautiful travel destination" class="main__article__image">
@@ -37,10 +37,15 @@
 
     <script>
         // Event listeners for each nav link
+        document.getElementById('home-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            loadHomeContent();  // Load the home content
+        });
+
         document.getElementById('weather-link').addEventListener('click', function(e) {
             e.preventDefault();
             loadWeatherContent();  // Load the weather content
-            loadScript('weather.js');  // Load the weather JS
+            loadScript('weather.js');  // Load the weather JS dynamically
         });
 
         document.getElementById('highlights-link').addEventListener('click', function(e) {
@@ -48,6 +53,18 @@
             loadHighlightsContent();  // Load the highlights content
             loadScript('highlights.js');  // Load the highlights JS dynamically
         });
+
+        // Function to load the home content
+        function loadHomeContent() {
+            var mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <section id="home-content">
+                    <h1>WanderWise - Your Personal Travel Guide</h1>
+                    <p>WanderWise is a responsive web app for travelers, offering a personalized guide to top attractions and up-to-date weather forecasts.</p>
+                    <img src="Images/main__article__image.jpg" alt="Beautiful travel destination" class="main__article__image">
+                </section>
+            `;
+        }
 
         // Function to load the weather content
         function loadWeatherContent() {
@@ -77,7 +94,7 @@
             `;
         }
 
-        // Function to load JS 
+        // Function to dynamically load a script
         function loadScript(src) {
             var script = document.createElement('script');
             script.src = src;

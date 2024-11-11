@@ -27,7 +27,7 @@ function getWeather(query) {
 
     // weather data from OpenWeatherMap API
     return fetch(
-        'https://api.openweathermap.org/data/3.0/weather?q=' + query + '&units=imperial&APPID=6f472cfbf92aff8f9ee810374f0c3e63'
+        'https://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&APPID=6f472cfbf92aff8f9ee810374f0c3e63'
     )
     .then(function (res) {
         return res.json(); 
