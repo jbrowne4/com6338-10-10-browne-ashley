@@ -112,6 +112,26 @@
             });
             document.getElementById(sectionId).classList.add('active');
         }
+        
+        <section id="highlights" class="hidden">
+    <h2>Local Highlights</h2>
+    <form id="highlights-form">
+        <label for="highlights-location-input">Enter a location:</label>
+        <input type="text" id="highlights-location-input" placeholder="City, Country">
+        <button type="submit">Find Highlights</button>
+    </form>
+
+    <div id="highlights-container">
+        <h3>Top Attractions</h3>
+        <ul id="attractions-list"></ul>
+
+        <h3>Restaurants & Cafes</h3>
+        <ul id="restaurants-list"></ul>
+
+        <h3>Activities</h3>
+        <ul id="activities-list"></ul>
+    </div>
+</section>
     </script>
 </body>
 </html>
