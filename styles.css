@@ -36,9 +36,11 @@ body {
 }
 
 .main__article__image {
-    max-width: 100%;
+    max-width: 40%;
     height: auto;
     border-radius: 8px;
+    display: block;
+    padding-left: 20em;
 }
 
 input, button {

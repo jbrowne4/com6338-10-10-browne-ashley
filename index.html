@@ -40,24 +40,24 @@
         document.getElementById('home-link').addEventListener('click', function(e) {
             e.preventDefault();
             loadHomeContent();
-            showSection('home-content');  // Show home section with animation
+            showSection('home-content');
         });
-
+    
         document.getElementById('weather-link').addEventListener('click', function(e) {
             e.preventDefault();
             loadWeatherContent();
             loadScript('weather.js');
-            showSection('weather');  // Show weather section with animation
+            showSection('weather');
         });
-
+    
         document.getElementById('highlights-link').addEventListener('click', function(e) {
             e.preventDefault();
             loadHighlightsContent();
             loadScript('highlights.js');
-            showSection('highlights');  // Show highlights section with animation
+            showSection('highlights');
         });
-
-        // Function to load the home content
+    
+        // Functions
         function loadHomeContent() {
             var mainContent = document.getElementById('main-content');
             mainContent.innerHTML = `
@@ -68,8 +68,7 @@
                 </section>
             `;
         }
-
-        // Function to load the weather content
+    
         function loadWeatherContent() {
             var mainContent = document.getElementById('main-content');
             mainContent.innerHTML = `
@@ -84,8 +83,7 @@
                 </section>
             `;
         }
-
-        // Function to load the local highlights content
+    
         function loadHighlightsContent() {
             var mainContent = document.getElementById('main-content');
             mainContent.innerHTML = `
@@ -96,43 +94,22 @@
                 </section>
             `;
         }
-
-        // Function to dynamically load a script
+    
         function loadScript(src) {
             var script = document.createElement('script');
             script.src = src;
             script.type = 'text/javascript';
-            document.body.appendChild(script);  
+            document.body.appendChild(script);
         }
-
-        // Function to show a section with fade-in animation
+    
         function showSection(sectionId) {
             document.querySelectorAll('#main-content section').forEach(section => {
                 section.classList.remove('active');
             });
             document.getElementById(sectionId).classList.add('active');
         }
-        
-        <section id="highlights" class="hidden">
-    <h2>Local Highlights</h2>
-    <form id="highlights-form">
-        <label for="highlights-location-input">Enter a location:</label>
-        <input type="text" id="highlights-location-input" placeholder="City, Country">
-        <button type="submit">Find Highlights</button>
-    </form>
-
-    <div id="highlights-container">
-        <h3>Top Attractions</h3>
-        <ul id="attractions-list"></ul>
-
-        <h3>Restaurants & Cafes</h3>
-        <ul id="restaurants-list"></ul>
-
-        <h3>Activities</h3>
-        <ul id="activities-list"></ul>
-    </div>
-</section>
     </script>
+    
 </body>
 </html>
 
